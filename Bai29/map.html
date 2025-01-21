@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Map Example</title>
+</head>
+<body>
+  <!-- Hình bản đồ -->
+  <img src="hinh/Map.jpg" usemap="#usaMap" alt="USA Regions Map">
+
+  <!-- Định nghĩa bản đồ -->
+  <map name="usaMap">
+    <!-- Vùng màu đỏ -->
+    <area target="mainframe" shape="poly" coords="86,19,121,19,133,21,141,25,152,30,160,36,164,49,172,57,168,64,165,68,157,66,147,74,139,78,120,79,93,76,93,59,87,57" href="Red.html" alt="Red Region">
+    
+    <!-- Vùng màu xanh lá -->
+    <area target="mainframe" shape="poly" coords="89,77,89,100,78,101,111,133,123,109,138,120,146,108,172,136,170,109,177,96,188,85,188,76,182,70,173,75,157,66,140,81" href="Green.html" alt="Green Region">
+    
+    <!-- Vùng màu xanh dương -->
+    <area target="mainframe" shape="poly" coords="172,54,184,46,195,39,207,36,214,25,219,39,219,47,211,54,211,62,199,66,194,76,185,69,176,72,169,75,170,66" href="Blue.html" alt="Blue Region">
+    
+    <!-- Vùng màu hồng -->
+    <area target="mainframe" shape="poly" coords="12,20,86,19,86,58,91,57,92,76,88,99,72,99,62,104,50,97,39,96,28,89,13,67,12,56,13,20" href="Pink.html" alt="Pink Region">
+  </map>
+</body>
+</html>

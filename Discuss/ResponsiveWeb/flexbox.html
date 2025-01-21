@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Responsive</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .box {
+      flex: 1 1 calc(33.333% - 10px); /* 3 cột trên màn hình lớn */
+      background-color: #f8b400; /* Vàng */
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      border-radius: 10px; /* Bo góc */
+    }
+
+    @media (max-width: 768px) {
+      .box {
+        flex: 1 1 calc(50% - 10px); /* 2 cột trên màn hình vừa */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .box {
+        flex: 1 1 100%; /* 1 cột trên màn hình nhỏ */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">Công Thức Món 1</div>
+    <div class="box">Công Thức Món 2</div>
+    <div class="box">Công Thức Món 3</div>
+  </div>
+</body>
+</html>

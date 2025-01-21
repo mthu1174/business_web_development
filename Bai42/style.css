@@ -1,0 +1,106 @@
+/* Tổng thể */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: green;
+  background: white;
+}
+h1,h2,h3,h4{color:olive;}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.header img {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.nav a {
+  text-decoration: underline;
+  color: blue;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.nav a:hover {
+  color: red;
+  font-weight: bold;
+}
+
+/* Main Content */
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+/* Nội dung chính */
+.content {
+  width: 65%;
+  margin-right: 20px;
+}
+
+.content h1 {
+  color: olive;
+}
+
+.content ul {
+  list-style: none;
+  padding-left: 30px;
+}
+
+.content ul li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  background: url('hinh/Apple.jpg') no-repeat left center;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 30%;
+  background-color: #ffff41;
+  padding: 10px;
+  border: 1px solid #cccc99;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar img {
+  width: 50%;
+  margin: 10px 0;
+  float: right;
+}
+
+/* Phần bình luận */
+.comments {
+  vertical-align: top;
+  margin: 0px;
+  padding: 15px;
+}
+
+.comments blockquote {
+  background-color: #dddddd;
+  padding: 10px;
+  margin: 20px 30px;
+  border-left: 5px solid green;
+}
+
+/* Footer */
+footer {
+  text-align: left;
+  padding: 10px;
+  margin-top: 0px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+
+
+

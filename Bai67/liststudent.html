@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title> Page Title </title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <style>
+            table.tbody.tr:hover{
+                background-color: #eae073;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            var dataset ="<sinhviens>";
+                dataset += "<sinhvien>";
+                    dataset += "<mssv>K123456789</mssv>"; 
+                    dataset += "<hoTen>Quách Thị Bán Bún Bò</hoTen>";
+                    dataset += "<ngaySinh>7/7/1997</ngaySinh>";
+                    dataset += "<gioiTinh>Nữ</gioiTinh>";
+                dataset += "</sinhvien>";
+                dataset += "<sinhvien>";
+                    dataset += "<mssv>K12345000</mssv>";
+                    dataset += "<hoTen>Hồng Lâu Mộng</hoTen>";
+                    dataset += "<ngaySinh>2/2/1992</ngaySinh>";
+                    dataset += "<gioiTinh>Nam</gioiTinh>";
+                dataset += "</sinhvien>";
+                dataset += "<sinhvien>";
+                    dataset += "<mssv>K1674000</mssv>";
+                    dataset += "<hoTen>Hồ Văn Đồ</hoTen>";
+                    dataset += "<ngaySinh>2/7/1997</ngaySinh>";
+                    dataset += "<gioiTinh>Nam</gioiTinh>";
+                dataset += "</sinhvien>";
+                dataset += "</sinhviens>";
+                let sapXepThuTu="asc";
+                function sapXepTheoCot(cot) {
+                    var parser = new DOMParser();
+                    var xmlDoc = parser.parseFromString(dataset, "text/xml");
+                    var students = Array.from(xmlDoc.getElementsByTagName("sinhvien"));
+
+                    // Sắp xếp danh sách sinh viên
+                    students.sort((a, b) => {
+                        let aVal = a.getElementsByTagName(cot)[0].childNodes[0].nodeValue;
+                        let bVal = b.getElementsByTagName(cot)[0].childNodes[0].nodeValue;
+
+                        if (cot === "ngaySinh") {
+                            aVal = new Date(aVal.split("/").reverse().join("/"));
+                            bVal = new Date(bVal.split("/").reverse().join("/"));
+                        }
+
+                        if (sapXepThuTu === "asc") {
+                            return aVal > bVal ? 1 : -1;
+                        } else {
+                            return aVal < bVal ? 1 : -1;
+                        }
+                    });
+
+                    // Chuyển đổi trạng thái sắp xếp
+                    sapXepThuTu = sapXepThuTu === "asc" ? "desc" : "asc";
+
+                    // Xóa nội dung cũ của bảng
+                    var tbodySinhvien = document.getElementById("tbodySinhvien");
+                    tbodySinhvien.innerHTML = "";
+
+                    // Tạo lại bảng từ danh sách đã sắp xếp
+                    students.forEach((sti) => {
+                        var mssv = sti.getElementsByTagName("mssv")[0].childNodes[0].nodeValue;
+                        var hoTen = sti.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue;
+                        var ngaySinh = sti.getElementsByTagName("ngaySinh")[0].childNodes[0].nodeValue;
+                        var gioiTinh = sti.getElementsByTagName("gioiTinh")[0].childNodes[0].nodeValue;
+
+                        var tr = document.createElement("tr");
+                        tr.setAttribute("onclick", `moTrangChiTiet('${mssv}')`);
+                        tbodySinhvien.appendChild(tr);
+
+                        var tdmssv = document.createElement("td");
+                        tdmssv.innerText = mssv;
+                        tr.appendChild(tdmssv);
+
+                        var tdhoTen = document.createElement("td");
+                        tdhoTen.innerText = hoTen;
+                        tr.appendChild(tdhoTen);
+
+                        var tdngaySinh = document.createElement("td");
+                        tdngaySinh.innerText = ngaySinh;
+                        tr.appendChild(tdngaySinh);
+
+                        var tdgioiTinh = document.createElement("td");
+                        tdgioiTinh.innerText = gioiTinh;
+                        tr.appendChild(tdgioiTinh);
+                    });
+                }
+
+        </script>
+    </head>
+    <body>
+        <table style="font-family: 'Times New Roman', Times, serif;" border="1">
+            <thead>
+                <tr>
+                    <td colspan="4" style="text-align: center; font-size: 20px; font-weight: bold; background-color: #FFA500;">
+                        Danh sách sinh viên
+                    </td>
+                </tr>
+                <tr style="background-color: #20660e;color: white;">
+                    <th onclick="sapXepTheoCot('mssv')">Mã số sinh viên</th>
+                    <th onclick="sapXepTheoCot('hoTen')">Họ Tên</th>
+                    <th onclick="sapXepTheoCot('ngaySinh')">Ngày Sinh</th>
+                    <th onclick="sapXepTheoCot('gioiTinh')">Giới Tính</th>
+                </tr>
+            </thead>
+            <tbody id="tbodySinhvien">
+                <script>
+                    function tai_danhsach_Sinhvien(){
+                        //Bước 1: Nạp mô hình XML DOM
+                        var parser = new DOMParser();
+                        var xmlDoc = parser.parseFromString(dataset, "text/xml");
+                        //lấy toàn bộ the students của dataset
+                        students = xmlDoc.getElementsByTagName("sinhvien");
+                        for(i=0;i<students.length;i++){
+                            //Lấy thẻ sinh viên thứ i, trả về tất cả các thông tin của 1 sinh viên
+                            sti=students[i];
+                            mssv=sti.getElementsByTagName("mssv")[0].childNodes[0].nodeValue;
+                            hoTen=sti.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue;
+                            ngaySinh=sti.getElementsByTagName("ngaySinh")[0].childNodes[0].nodeValue;
+                            gioiTinh=sti.getElementsByTagName("gioiTinh")[0].childNodes[0].nodeValue;
+                            //Bước 2: Xử lý HTML DOM để hiển thị dữ liệu XML lên giao diện
+                            tbodySinhvien=document.getElementById("tbodySinhvien");
+                            tr=document.createElement("tr");
+                            tr.setAttribute("onclick", `moTrangChiTiet('${mssv}')`);
+                            tbodySinhvien.appendChild(tr);
+
+                            tdmssv=document.createElement("td");
+                            tdmssv.innerText=mssv;
+                            tr.appendChild(tdmssv);
+
+                            tdhoTen=document.createElement("td");
+                            tdhoTen.innerText=hoTen;
+                            tr.appendChild(tdhoTen);
+
+                            tdngaySinh=document.createElement("td");
+                            tdngaySinh.innerText=ngaySinh;
+                            tr.appendChild(tdngaySinh);
+
+                            tdgioiTinh=document.createElement("td");
+                            tdgioiTinh.innerText=gioiTinh;
+                            tr.appendChild(tdgioiTinh);
+                        }
+                    }
+                    function moTrangChiTiet(mssv) {
+                    // Tạo URL trang chi tiết cho sinh viên
+                    var url = `detail_${mssv.toLowerCase()}.html`; // Chuyển MSSV sang chữ thường (nếu cần)
+                    window.location.href = url; // Chuyển hướng đến URL
+}
+                tai_danhsach_Sinhvien();
+                </script>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive with Media Queries</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .box {
+      width: 30%;
+      margin: 10px;
+      float: left;
+      background-color: lightblue;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Media Query for small screens */
+    @media (max-width: 768px) {
+      .box {
+        width: 100%;
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">Thực đơn 1</div>
+    <div class="box">Thực đơn 2</div>
+    <div class="box">Thực đơn 3</div>
+  </div>
+</body>
+</html>

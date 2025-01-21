@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title> Page Title </title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <center>
+            <img src="hinh/Jackson.gif">
+        </center>
+        <h2 align="center">Registration Form</h2>
+        <h5 align="center">Register your Jackson Electronics product here</h5>
+        <form>
+            <table>   
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" name="fname" id="fname"></td>
+                    <td>Last Name:</td>
+                    <td><input type="text" name="lname" id="lname"></td>
+                </tr>
+                <tr>
+                    <td>Address #1:</td>
+                    <td><input type="text" name="address1" id="address1"></td>
+                </tr>
+                <tr>
+                    <td>Address #2:</td>
+                    <td><input type="text" name="address2" id="address2"></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" name="city" id="city"></td>
+                    <td>State:</td>
+                    <td><input type="text" name="state" id="state"></td>
+                    <td>Zip:</td>
+                    <td><input type="text" name="zip" id="zip"></td>
+                </tr>
+            </table>
+            <hr/>
+            <table>
+                <tr>
+                    <td>Product:</td>
+                    <td>
+                    <select name="product" id="product">
+                        <option value="sm">ScanMaster</option>
+                        <option value="pm">PrintMaster</option>
+                        <option value="cdm">CDMaster</option>
+                        <option value="wm">WebMaster</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date Purchased</td>
+                    <td><input type="text" name="date" id="date"></td>
+                </tr>
+                <tr>
+                    <td>Serial #:</td>
+                    <td><input type="text" name="serial" id="serial"></td>
+                </tr>
+                <tr>
+                    <td>Used for:</td>
+                    <td>
+                        <input type="radio" name="usedfor" id="home" value="home">
+                        <label for="home">Home</label>
+                        <input type="radio" name="usedfor" id="education" value="education">
+                        <label for="education">Education</label>
+                        <br/>
+                        <input type="radio" name="usedfor" id="business" value="business">
+                        <label for="business">Business</label>
+                        <input type="radio" name="usedfor" id="others" value="others">
+                        <label for="others">Others</label>
+                        <br/>
+                        <input type="radio" name="usedfor" id="gov" value="gov">
+                        <label for="gov">Government</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>System(check all that apply)</td>
+                    <td>
+                        <input type="checkbox" name="system" id="win" value="win">
+                        <label for="win">Windows</label>
+                        <input type="checkbox" name="system" id="unix" value="unix">
+                        <label for="unix">UNIX</label>
+                        <br/>
+                        <input type="checkbox" name="system" id="mac" value="mac">
+                        <label for="mac">Macintosh</label>
+                        <input type="checkbox" name="system" id="other" value="other">
+                        <label for="other">Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><textarea name="comments" id="comments" rows="5" cols="40"></textarea></td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <input type="button" value="Click to register">
+                        <input type="button" value="Click to cancel">
+                    </td>
+                </tr>
+            </table>
+        </form>    
+    </body>
+</html>

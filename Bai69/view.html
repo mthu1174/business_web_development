@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách nhân viên</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function loadXML(callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "employees.xml", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    callback(xhr.responseXML);
+                }
+            };
+            xhr.send();
+        }
+
+        function populateTitles() {
+            loadXML(function (xml) {
+                var employees = xml.getElementsByTagName("employee");
+                var titles = new Set();
+
+                // Lấy các giá trị title không trùng lặp
+                for (var i = 0; i < employees.length; i++) {
+                    var title = employees[i].getAttribute("title");
+                    titles.add(title);
+                }
+
+                // Nạp title vào combobox
+                var dropdown = document.getElementById("titleDropdown");
+                titles.forEach(function (title) {
+                    var option = document.createElement("option");
+                    option.value = title;
+                    option.textContent = title;
+                    dropdown.appendChild(option);
+                });
+            });
+        }
+
+        function displayEmployeesByTitle() {
+            var selectedTitle = document.getElementById("titleDropdown").value;
+            loadXML(function (xml) {
+                var employees = xml.getElementsByTagName("employee");
+                var tableBody = document.getElementById("employeeTableBody");
+
+                // Xóa nội dung cũ
+                tableBody.innerHTML = "";
+
+                // Hiển thị nhân viên theo title
+                for (var i = 0; i < employees.length; i++) {
+                    var employee = employees[i];
+                    if (employee.getAttribute("title") === selectedTitle) {
+                        var id = employee.getAttribute("id");
+                        var name = employee.getElementsByTagName("name")[0].textContent;
+                        var phone = employee.getElementsByTagName("phone")[0].textContent;
+
+                        var row = document.createElement("tr");
+
+                        var cellId = document.createElement("td");
+                        cellId.textContent = id;
+                        row.appendChild(cellId);
+
+                        var cellName = document.createElement("td");
+                        cellName.textContent = name;
+                        row.appendChild(cellName);
+
+                        var cellPhone = document.createElement("td");
+                        cellPhone.textContent = phone;
+                        row.appendChild(cellPhone);
+
+                        tableBody.appendChild(row);
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="populateTitles()">
+    <h1>Danh sách nhân viên</h1>
+    <label for="titleDropdown">Chọn Title:</label>
+    <select id="titleDropdown" onchange="displayEmployeesByTitle()">
+        <option value="">-- Chọn Title --</option>
+    </select>
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Mã Employee</th>
+                <th>Tên Employee</th>
+                <th>Phone Employee</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+            <!-- Dữ liệu sẽ được nạp ở đây -->
+        </tbody>
+    </table>
+</body>
+</html>

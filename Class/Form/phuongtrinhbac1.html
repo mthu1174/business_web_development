@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title> Page Title </title>
+        <script>
+            function giaiPTB1(){
+                //alert("Muốn giải phương trình hả");
+                //formptb1.hesoa: Trả về đốitượng input là ô nhập liệu
+                hesoa=ptb1.hesoa.value; //Trả về giá trị mà người dùng nhập vào nó
+                //Vì dữ liệu nhập liệu là chuỗi nên ta chuyển về thành số
+                hesoa=eval(hesoa);
+                hesob=eval(ptb1.hesob.value);
+                nghiem=""
+                if(hesoa==0 && hesob==0){
+                    nghiem="Phương trình vô số nghiệm";
+                }
+                else if(hesoa==0 && hesob!=0){
+                    nghiem="Phương trình vô nghiệm";
+                }
+                else{
+                    nghiem="Phương trình có nghiệm x="+(-hesob/hesoa);
+                }
+                //để truy xuất tới thẻ html thông qua id
+                //truy xuất tới thẻ td mà ta đặt id là ketqua
+                tdketqua=document.getElementById("ketqua"); 
+                //hiển thị kết quả cho id:
+                tdketqua.innerHTML=nghiem;
+
+            }
+        </script>
+    </head>
+    <body>
+        <form name="ptb1">
+            <table border="1">
+                <caption>Giải phương trình bậc 1</caption>
+                <tbody>
+                    <tr>
+                        <td>Hệ số a</td>
+                        <td>
+                            <input type="text" id="hesoa" name="hesoa"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hệ số b</td>
+                        <td>
+                            <input type="text" id="hesob" name="hesob"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kết quả</td>
+                        <td id="ketqua">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Giải" onclick="giaiPTB1()"/>
+                            <input type="button" value="Tiếp"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

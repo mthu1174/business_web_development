@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+.header {
+  text-align: right;
+  padding: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 46px;
+  color: #333;
+}
+
+.header .tagline {
+  font-size: 18px;
+  color: white;
+  background-color:orange;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.category{
+    height: 100%;
+    background-image: url("./hinh/back.jpg");
+    background-repeat: repeat-y;
+    padding-bottom: 15%;
+    vertical-align: top;
+}
+.category ol {
+    list-style-type: disc;
+    color: brown;
+}
+hr{
+    border: 1px solid orange;
+}
+h1{ padding-top: 0;
+    color: orange;
+}
+p{
+    color: brown;
+}
+
+.highlight-box {
+    width: 30%;
+    float: right;
+    flex: 1;
+    background-color: #fff8e1;
+    padding: 15px;
+    border: 2px solid orange;
+    box-shadow: 2px 2px 5px rgba(210, 131, 28, 0.589);
+    padding-left: 10px;
+}
+.highlight-box h1{
+    color: orange;
+    padding: 0;
+    margin: 0;
+}
+.highlight-box ul {
+    list-style-type: disc;
+    color: brown;
+    margin: 0;
+    padding: 20px;
+
+}
+.highlight-box ul li{
+    color: brown;
+}

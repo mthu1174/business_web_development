@@ -1,0 +1,127 @@
+/*Tổng thể*/
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color:white;
+}
+/*Header*/
+.header{
+  background-color: #ff9900;
+  color: white;
+  text-align: left;
+  border-color: #000066;
+}
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000000;
+}
+/* Dot decoration*/
+.dot-decoration{
+  display: flex;
+  justify-content: left;
+  gap: 5px; /* Khoảng cách giữa các dot */
+  margin-bottom: 20px; /* Khoảng cách giữa dot và chữ */
+}
+.dot{
+  width: 10px;
+  height: 10px;
+}
+.dot-blue{
+  background-color: #0000cc;
+}
+.dot.light-blue {
+  background-color: #00ccff;
+}
+
+.dot.dark-blue {
+  background-color: #000066;
+}
+.blue-line{
+  height: 1px;
+  background-color: #000066;
+  width: 100%;
+}
+/*Container*/
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 25%;
+  padding: 15px;
+  border: 2px solid #0066cc;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  background-color: #1414bf;
+  color: white;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 8px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color:black;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+  color: #0066cc;
+}
+
+/* Main Content */
+.main-content {
+  width: 75%;
+  padding: 15px;
+}
+
+.main-content h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  padding-top: 0%;
+  color: #0000cc;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 2px solid #000066;
+}
+
+table th, table td {
+  border: 1px solid #000066;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #ff9900;
+  text-align: center;
+  color: white;
+}
+
+/* Footer */
+.footer {
+  background-color: #0066cc;
+  height: 1px;
+  margin-left: 50px;
+}
+strong{
+  color: #0000cc;
+  font-weight: bold;
+}

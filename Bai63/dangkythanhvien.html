@@ -1,0 +1,217 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title> Page Title </title>
+        <style>
+            table tbody tr:hover{
+                background-color: yellow;
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            // Populate day, month, year dropdowns
+            const daySelect = document.getElementById("day");
+            const monthSelect = document.getElementById("month");
+            const yearSelect = document.getElementById("year");
+
+            for (let i = 1; i <= 31; i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                daySelect.appendChild(option);
+            }
+
+            for (let i = 1; i <= 12; i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                monthSelect.appendChild(option);
+            }
+
+            for (let i = 1900; i <= new Date().getFullYear(); i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                yearSelect.appendChild(option);
+            }
+
+            // Handle form submission
+            document.querySelector("form").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const gender = document.querySelector('input[name="gender"]:checked');
+                const yearOfBirth = yearSelect.value;
+                const hobbies = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                    .map(checkbox => checkbox.value)
+                    .join(", ");
+                const color = document.querySelector('input[name="color"]:checked');
+
+                // Validation
+                if (!name) {
+                    alert("Tên không được bỏ trống");
+                    document.getElementById("name").focus();
+                    return;
+                }
+                if (!validateEmail(email)) {
+                    alert("Email không hợp lệ");
+                    document.getElementById("email").focus();
+                    return;
+                }
+
+                // Add data to table
+                const tableBody = document.querySelector("table tbody");
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td>${gender ? gender.nextElementSibling.textContent : ""}</td>
+                    <td>${yearOfBirth}</td>
+                    <td>${hobbies}</td>
+                    <td>${color ? color.nextElementSibling.textContent : ""}</td>
+                `;
+                tableBody.appendChild(row);
+
+                // Clear form
+                clearForm();
+            });
+
+            // Handle "Tiếp" button
+            document.querySelector('input[type="button"][value="Tiếp"]').addEventListener("click", function () {
+                clearForm();
+                document.getElementById("name").focus();
+            });
+
+            // Mouseover and mouseout events for table rows
+            const table = document.querySelector("table");
+            table.addEventListener("mouseover", function (e) {
+                if (e.target.tagName === "TD") {
+                    e.target.parentElement.style.backgroundColor = "yellow";
+                }
+            });
+
+            table.addEventListener("mouseout", function (e) {
+                if (e.target.tagName === "TD") {
+                    e.target.parentElement.style.backgroundColor = "";
+                }
+            });
+
+            // Validate email
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Clear form function
+            function clearForm() {
+                document.querySelector("form").reset();
+            }
+        });
+        </script>
+    </head>
+    <body>
+        <h1> Đăng ký thành viên</h1>
+        <hr/>
+        <form>
+            <p>
+                <label for="name">Tên(*) </label>
+                <input type="text" id="name" name="name" size="20"/>
+            </p>
+            <p>
+                <label for="dob">Ngày sinh(*)</label>
+                <label for="day">Ngày:</label>
+                    <select id="day" name="day">
+                        <option value="">01</option>
+                            <script>
+                                for (let i=1;i<=31;i++){
+                                    document.write("<option value='"+i+"'>"+i+"</option>");
+                                }
+                            </script>
+                    </select>
+                <label for="month">Tháng:</label>
+                    <select id="month" name="month">
+                        <option value="">01</option>
+                            <script>
+                                for (let i=1;i<=12;i++){
+                                    document.write("<option value='"+i+"'>"+i+"</option>");
+                                }
+                            </script>
+                    </select>
+
+                <label for="year">Năm:</label>
+                    <select id="year" name="year">
+                        <option value="">1970</option>
+                            <script>
+                                for (let i=1971;i<=2025;i++){
+                                    document.write("<option value='"+i+"'>"+i+"</option>");
+                                }
+                            </script>
+                    </select>
+            </p>
+            <p>    
+                <label for="gender">Giới tính(*)</label>
+                <input type="radio" name="gender" id="man" value="man">
+                <label>Nam</label>
+                <input type="radio" name="gender" id="woman" value="woman">
+                <label>Nữ</label>
+            </p>
+            <p>    
+                <label for="email">Email(*)</label>
+                <input type="text" id="email" name="email" size="20"/>
+            </p>    
+            <p>Sở thích của bạn:</p>
+            <p>
+                <input type="checkbox" name="shopping" value="shopping">
+                <label>Mua sắn</label>
+                <br/>
+                <input type="checkbox" name="travel" value="travel">
+                <label>Du lịch</label>
+                <br/>
+                <input type="checkbox" name="chat" value="chat">
+                <label>Tán gẫu</label>
+                <br/>
+                <input type="checkbox" name="read" value="read">
+                <label>Đọc sách</label>
+                <br/>
+                <input type="checkbox" name="music" value="music">
+                <label>Nghe nhạc</label>
+            </p>    
+            <p>Màu yêu thích của bạn:</p>
+            <p>
+                <input type="radio" name="color" value="blue">
+                <label for="color" style="background-color: blue;">Màu xanh</label>
+                <br/>
+                <input type="radio" name="color" value="red">
+                <label for="color" style="background-color: red;">Màu đỏ</label>
+                <br/>  
+                <input type="radio" name="color" value="yellow">
+                <label for="color" style="background-color: yellow;">Màu vàng</label>
+                <br/>
+                <input type="radio" name="color" value="green">
+                <label for="color" style="background-color: greenyellow;">Màu xanh lá</label>
+                <br/>
+                <input type="radio" name="color" value="purple">
+                <label for="color" style="background-color: plum;">Màu tím</label>
+            </p>
+            <p>
+                <input type="submit" value="Đăng ký"/>
+                <input type="button" value="Tiếp"/>
+            </p>    
+            <table border="1">
+                <thead style="background-color: blue; color: white;">
+                    <tr>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Giới tính</th>
+                        <th>Năm sinh</th>
+                        <th>Sở thích</th>
+                        <th>Màu yêu thích</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </form>
+        
+    </body>
+</html>

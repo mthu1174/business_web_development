@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title> Page Title </title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Thông tin cá nhân</legend>
+            <table>
+                <tr>
+                    <td>Fullname</td>
+                    <td><input type="text" name="fullname" id="fullname"/></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="email" id="email"/></td>
+                </tr>
+                <tr>
+                    <td>Bằng cấp/chứng chỉ</td>
+                    <td>
+                        <p><input type="checkbox" name="daihoc" id="daihoc" value="daihoc">
+                        <label for="daihoc">Bằng đại học</label>
+                        </p>
+                        <p><input type="checkbox" name="hanhnghe" id="hanhnghe" value="hanhnghe">
+                        <label for="hanhnghe">Chứng chỉ hành nghề</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td> 
+                    <!--Name phải giống nhau-->
+                        <p><input type="radio" name="gioitinh" id="nam" value="nam">
+                        <label for="nam">Nam</label>
+                        </p>
+                        <p><input type="radio" name="gioitinh" id="nu" value="nu">
+                        <label for="nu">Nữ</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quê quán</td>
+                    <td>
+                        <select name="quequan" id="quequan">
+                            <option value="hanoi">Hà Nội</option>
+                            <option value="hcm">Hồ Chí Minh</option>
+                            <option value="danang">Đà Nẵng</option>
+                            <option value="cantho">Cần Thơ</option>
+                        </select>
+                    </td>
+            </table>
+        </fieldset>
+        
+    </body>
+</html>

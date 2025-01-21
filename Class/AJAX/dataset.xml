@@ -1,0 +1,37 @@
+<root>
+    <sinhvien>
+        <mssv>K123456789</mssv>
+        <hoTen>Nguyễn Văn A</hoTen>
+        <ngaySinh>1/1/1995</ngaySinh>
+        <gioiTinh>Nam</gioiTinh>
+        <hinh>images/a.png</hinh>
+    </sinhvien>
+    <sinhvien>
+        <mssv>K12345000</mssv>
+        <hoTen>Nguyễn Thị B</hoTen>
+        <ngaySinh>2/2/1996</ngaySinh>
+        <gioiTinh>Nữ</gioiTinh>
+        <hinh>images/b.png</hinh>
+    </sinhvien>
+    <sinhvien>
+        <mssv>K1674000</mssv>
+        <hoTen>Trần Văn C</hoTen>
+        <ngaySinh>3/3/1997</ngaySinh>
+        <gioiTinh>Nam</gioiTinh>
+        <hinh>images/c.jpg</hinh>
+    </sinhvien>
+    <sinhvien>
+        <mssv>K23456789</mssv>
+        <hoTen>Phạm Thị D</hoTen>
+        <ngaySinh>4/4/1998</ngaySinh>
+        <gioiTinh>Nữ</gioiTinh>
+        <hinh>images/d.jfif</hinh>
+    </sinhvien>
+    <sinhvien>
+        <mssv>K34567890</mssv>
+        <hoTen>Đặng Văn E</hoTen>
+        <ngaySinh>5/5/1999</ngaySinh>
+        <gioiTinh>Nam</gioiTinh>
+        <hinh>images/e.jpg</hinh>
+    </sinhvien>
+</root>

@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Danh sách sinh viên</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            tr.nam {
+                background-color: yellow; /* Nền vàng cho nam */
+            }
+            tr.nu {
+                background-color: pink; /* Nền hồng cho nữ */
+            }
+        </style>
+        <script>
+            function napDanhSachSinhVien() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "dataset.xml", true);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var xmlDoc = xhr.responseXML;
+                        var sinhviens = xmlDoc.getElementsByTagName("sinhvien");
+                        var tableBody = document.getElementById("tbodySinhvien");
+
+                        // Xóa nội dung bảng cũ
+                        tableBody.innerHTML = "";
+
+                        // Lặp qua danh sách sinh viên
+                        for (var i = 0; i < sinhviens.length; i++) {
+                            var sv = sinhviens[i];
+
+                            var mssv = sv.getElementsByTagName("mssv")[0].childNodes[0].nodeValue;
+                            var hoten = sv.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue;
+                            var ngaysinh = sv.getElementsByTagName("ngaySinh")[0].childNodes[0].nodeValue;
+                            var gioitinh = sv.getElementsByTagName("gioiTinh")[0].childNodes[0].nodeValue;
+                            var hinh = sv.getElementsByTagName("hinh")[0].childNodes[0].nodeValue;
+
+                            // Tạo dòng mới trong bảng
+                            var tr = document.createElement("tr");
+                            tr.className = gioitinh.toLowerCase() === "nam" ? "nam" : "nu"; // Đặt class theo giới tính
+
+                            var tdMssv = document.createElement("td");
+                            tdMssv.innerText = mssv;
+                            tr.appendChild(tdMssv);
+
+                            var tdHoten = document.createElement("td");
+                            tdHoten.innerText = hoten;
+                            tr.appendChild(tdHoten);
+
+                            var tdNgaySinh = document.createElement("td");
+                            tdNgaySinh.innerText = ngaysinh;
+                            tr.appendChild(tdNgaySinh);
+
+                            var tdGioiTinh = document.createElement("td");
+                            tdGioiTinh.innerText = gioitinh;
+                            tr.appendChild(tdGioiTinh);
+
+                            var tdHinh = document.createElement("td");
+                            var img = document.createElement("img");
+                            img.src = hinh;
+                            img.width = 100;
+                            img.height = 100;
+                            tdHinh.appendChild(img);
+                            tr.appendChild(tdHinh);
+
+                            // Thêm dòng vào bảng
+                            tableBody.appendChild(tr);
+                        }
+                    }
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Danh sách sinh viên</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã số sinh viên</th>
+                    <th>Họ tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Hình ảnh</th>
+                </tr>
+            </thead>
+            <tbody id="tbodySinhvien">
+                <!-- Danh sách sinh viên sẽ được thêm ở đây -->
+            </tbody>
+        </table>
+        <button onclick="napDanhSachSinhVien()">Nạp danh sách</button>
+    </body>
+</html>

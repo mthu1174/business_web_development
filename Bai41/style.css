@@ -1,0 +1,170 @@
+/* Tổng thể */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to bottom, #003366, #004080); /* Gradient xanh dương */
+  color: white;
+  display: flex;
+  justify-content: space-between; /* Căn trái logo và phải navigation */
+  align-items: flex-start;
+  padding: 10px 20px;
+}
+
+/* Logo */
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+/* Navigation Container */
+.nav-container {
+  display: flex;
+  flex-direction: column; /* Sắp xếp top-nav và sub-nav theo chiều dọc */
+  align-items: flex-end; /* Canh phải toàn bộ navigation */
+}
+
+/* Top Navigation */
+.top-nav {
+  margin-bottom: 5px; /* Khoảng cách giữa top-nav và sub-nav */
+}
+
+.top-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px; /* Khoảng cách giữa các liên kết */
+}
+
+.top-nav li {
+  display: inline;
+}
+
+.top-nav li a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+.top-nav li a:hover {
+  text-decoration: underline;
+}
+
+/* Sub Navigation */
+.sub-nav {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.sub-nav span {
+  font-weight: bold;
+  color: #ffc107; /* Màu vàng nổi bật */
+  margin-right: 10px;
+}
+
+.sub-nav select {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  color: #333;
+}
+/* Tổng thể */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Màu nền tổng thể */
+}
+
+/* Container */
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 25%;
+  background-color: #003366; /* Màu xanh sidebar */
+  color: white;
+  padding: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  padding:10 ;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+  width: 75%;
+  padding: 20px;
+  background-color: #ffffff; /* Màu trắng nền nội dung */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hình ảnh minh họa */
+.images {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.images img {
+  width: 32%; /* Chia đều hình ảnh */
+  border-radius: 5px;
+}
+
+/* Nội dung văn bản */
+.content h2 {
+  background-color: #dce6f7; /* Màu nền tiêu đề */
+  padding: 10px;
+  font-size: 18px;
+  color: #003366; /* Màu xanh tiêu đề */
+  margin-top: 0;
+}
+
+.content p {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Nút trở về */
+.back-button {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.back-button a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+}
+
+

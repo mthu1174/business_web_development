@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title> Page Title </title>
+        <script>
+            function xulythemKH(){
+               //bước 1: Phải lấy được các dữ liệu trong ô nhập liệu
+                tenkh = document.getElementById("tenkh").value;
+                email=formkhachhang.email.value;
+                phone=formkhachhang.phone.value;
+                //Bước 2: Ta cần đẩy thông tin vào table ở bên dưới bằng mô hình HTML DOM
+                alert("Xuống đây tức là đọc thành công dữ liệu từ form");
+                //Phải truy xuất được đối tượng tbody tại vì dữ liệu phải đưa vào thẻ tbody
+                tbodykhachhang = document.getElementById("tbodykhachhang");
+                tr_KH=document.createElement("tr");
+                //đưa tr vào tbody KH 
+                tbodykhachhang.appendChild(tr_KH);
+                //Tạo ra các thẻ td để chứa thông tin của khách hàng
+                td_tenkh=document.createElement("td");
+                td_tenkh.innerText=tenkh;
+                td_email=document.createElement("td");
+                td_email.innerText=email;
+                td_phone=document.createElement("td");
+                td_phone.innerText=phone;
+                td_loaikh=document.createElement("td");
+                img_loaikh=document.createElement("img");
+                if(formkhachhang.loaikh.value=="vip"){
+                        img_loaikh.setAttribute("src","hinh/vip.png");
+                    }else{
+                        img_loaikh.setAttribute("src","hinh/normal.jfif");
+                    }
+                
+                //đưa các td vào tr_KH
+                tr_KH.appendChild(td_tenkh);
+                tr_KH.appendChild(td_email);
+                tr_KH.appendChild(td_phone);
+                //Tạo ra thẻ td chứa thông tin loại khách hàng
+                    
+                td_loaikh.appendChild(img_loaikh);
+                tr_KH.appendChild(td_loaikh);
+                //bổ sung cột action (xóa)
+                td_action=document.createElement("td");
+                img_action=document.createElement("img");
+                img_action.setAttribute("src","hinh/delete.jpg");
+                img_action.setAttribute("cursor","pointer");
+                td_action.appendChild(img_action);
+                tr_KH.appendChild(td_action);
+            }
+        </script>
+    </head>
+    <body>
+        <form name="formkhachhang">
+            <table border="1">
+                <tr>
+                    <td>Tên khách hàng</td>
+                    <td>
+                        <input type="text" name="tenkh" id="tenkh"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="email" name="email" id="email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>
+                        <input type="phone" name="phone" id="phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Loại khách hàng</td>
+                    <td>
+                        <input type="radio" name="loaikh" value="vip"/>
+                        <label for="vip">Khách VIP</label>
+                        <input type="radio" name="loaikh" value="normal"/>
+                        <label for="normal">Khách thường</label>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="button" value="Gửi thông tin" onclick="xulythemKH()"/>
+                    </td>
+                </tr>
+            </table>
+        </form>    
+        <table border="1">
+            <caption>Danh sách khách hàng</caption>
+            <thead>
+                <tr>
+                    <th>Tên khách hàng</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Vip/normal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbodykhachhang">
+
+
+            </tbody>
+        </table>
+    </body>
+</html>
